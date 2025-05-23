@@ -134,4 +134,22 @@
 - 화면메시지박스 : alert()
 - 디버깅 출력 : console.log()
 
+    ```js
+    <script>
+        var radius = 10;
+        var PI = 3.14159265;
+
+        alert(2 * radius * PI);
+        console.log(2 * radius * PI);
+    </script>
+    ```
+
+- 변수타입 : 숫자, 문자열, 불린, ...
+    - null : undefined
+- 연산자 : 비교연산자, 수식연산자, 논리연산자, ...
+    - 차이점 : ===(타입과 값이 완전일치)
+- 흐름제어 : if, for, while
+- 함수 : function 함수명
+    - 익명함수 function() {}
+
 ## 3일차
