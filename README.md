@@ -932,6 +932,15 @@
     - 메일관련 작업 - Pendding
 
 
-### ASP.NET Core API서버
+## 11일차
+
+### ASP.NET Core API서버(Web API)
+- 2000년도 초반, 웹 서비스 이름의 변형
+- API서버, OpenAPI(공용)
+- 초기에는 XML을 데이터 전달로 사용
+- XML의 방대한 데이터크기 때문에 현재는 JSON으로 거의 이전
+
+#### Web API 만들기
+1. 프로젝트 생성
 
 ### AWS 클라우드 업로드
