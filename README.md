@@ -2,6 +2,47 @@
 
 <p>IoT 개발자 과정 <a href="https://dotnet.microsoft.com/ko-kr/apps/aspnet" target="_blank" style="color:red;">ASP.NET Core</a> 학습 리포지토리</p>
 
+---
+
+## 자유게시판 구현하기
+
+- [소스코드](./Day10Study/MyPortfolioWebApp/)
+
+1. **게시글 작성**
+
+    <img src="./image/codingtest/게시글 작성.png" width=700>
+    <img src="./image/codingtest/게시글 작성2.png" width=700>
+
+---
+
+2. **게시글 삭제**
+
+    <img src="./image/codingtest/게시글 삭제.png" width=700>
+    <img src="./image/codingtest/게시글 삭제2.png" width=700>
+
+---
+
+3. **게시글 수정**
+
+    <img src="./image/codingtest/게시글 수정.png" width=700>
+    <img src="./image/codingtest/게시글 수정2.png" width=700>
+
+---
+
+4. **게시글 상세보기**
+
+    <img src="./image/codingtest/게시글 상세보기.png" width=700>
+
+---
+
+5. **네비게이션 및 검색기능**
+
+    <img src="./image/codingtest/네비게이션.png" width=700>
+    <img src="./image/codingtest/검색기능.png" width=700>
+
+
+
+
 ## 1일차
 
 ### Web
