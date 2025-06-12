@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApiApp03.Models
+namespace WebApiApp03.models
 {
     public class iot_datas
     {

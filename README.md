@@ -2,47 +2,6 @@
 
 <p>IoT 개발자 과정 <a href="https://dotnet.microsoft.com/ko-kr/apps/aspnet" target="_blank" style="color:red;">ASP.NET Core</a> 학습 리포지토리</p>
 
----
-
-## 자유게시판 구현하기
-
-- [소스코드](./Day10Study/MyPortfolioWebApp/)
-
-1. **게시글 작성**
-
-    <img src="./image/codingtest/게시글 작성.png" width=700>
-    <img src="./image/codingtest/게시글 작성2.png" width=700>
-
----
-
-2. **게시글 삭제**
-
-    <img src="./image/codingtest/게시글 삭제.png" width=700>
-    <img src="./image/codingtest/게시글 삭제2.png" width=700>
-
----
-
-3. **게시글 수정**
-
-    <img src="./image/codingtest/게시글 수정.png" width=700>
-    <img src="./image/codingtest/게시글 수정2.png" width=700>
-
----
-
-4. **게시글 상세보기**
-
-    <img src="./image/codingtest/게시글 상세보기.png" width=700>
-
----
-
-5. **네비게이션 및 검색기능**
-
-    <img src="./image/codingtest/네비게이션.png" width=700>
-    <img src="./image/codingtest/검색기능.png" width=700>
-
-
-
-
 ## 1일차
 
 ### Web
@@ -974,27 +933,27 @@
 
 ## 11일차
 
-### ASP.NET Core API서버(Web API)
+### ASP.NET Core API 서버 (RestAPI)
 - 2000년도 초반, 웹서비스 이름의 변형
 - 웹을 통해서 데이터전달이 목적
-- API서버, WebAPI, RESTful Service, OpenAPI(공용)... 
+- API서버, WebAPI, RESTful, OpenAPI(공용)...
 - 초기에는 XML을 데이터 전달로 사용
 - XML의 방대한 데이터크기때문에 현재는 JSON으로 거의 이전(XML의 1/3수준)
 - WebAPI 서버 사용처
-    - 하나의 서비스로 여러가지 앱에서 같이 사용할때
+    - 하나의 서비스로 여러가지 앱에서 같이 사용할때. 
     - 회사 ERP를 웹사이트, 모바일, PC앱으로 동시에 사용할때
     - 알라딘 웹사이트, 모바일, PC책뷰어...
 
-#### Web API 만들기
+#### Web API 
 1. ASP.NET Core 웹 API로 프로젝트 생성
 2. Swagger 화면 확인
-3. Prgram.cs 소스 분석
+3. Prgeam.cs 소스 분석
 4. WeatherForecast 모델 클래스 확인
-5. WeatherForecastController 클래스 확인
+5. WeatherForecastController.cs 클래스 확인
 
 #### 웹서비스를 테스트 툴
-1. 웹브라우저 - URL을 입력, json뷰어확인
-2. Swagger UI - Visual Studio에 포함
+1. 웹브라우저 -> URL을 입력, json뷰어확인
+2. Swagger UI -> Visual Studio에 포함
 3. [Postman](https://www.postman.com/) - 가장 기능이 다양
 
     <img src="./image/web0029.png" width="600">
@@ -1010,11 +969,11 @@
 #### WebAPI CRUD 작업 연습
 |API|설명|Request body|Response body|
 |:--|:--|:--|:--|
-|GET ~/api/books|모든 책정보 가져오기|None|책정보 배열|
+|GET ~/api/books|모든 책정보 가져오기None|책정보 배열|
 |GET ~/api/books/{id}|특정 책정보 가져오기|None|책정보 한 건|
 |POST ~/api/books|새 책 추가|Book 데이터|Book 데이터|
 |PUT ~/api/books/{id}|기존책 수정|Book|None|
-|DELET ~/api/books/{id}|기존책 삭제|None|None|
+|DELETE ~/api/books/{id}/기존책 삭제|None|None|
 
 <img src="./image/web0026.png" width="600">
 
@@ -1022,7 +981,7 @@
 2. Models.Book 모델 클래스 생성
 3. EntityFramework NuGet패키지 설치
     - Microsoft.EntityFrameworkCore
-    - Pomelo.EntityFrameworkCore.MySql    
+    - Pomelo.EntityFrameworkCore.MySql
 4. appsettings.json DB연결문자열 추가
 5. MySQL Book 테이블 생성
 6. Models.AppDbContext 클래스 생성
@@ -1031,6 +990,7 @@
     - API > EntityFramework 사용 동작이 포함된 API컨트롤러 선택
 
     <img src="./image/web0027.png" width="600">
+
 9. 서버 실행
 
     <img src="./image/web0028.png" width="600">
@@ -1056,10 +1016,90 @@
 
     <img src="./image/web0031.png" width="600">
 
-## 12일차
+## 12일차 
 
-### ASP.NET Core API서버(계속)
+### ASP.NET Core API서버 (계속)
 
-#### WebAPI 서버 + 웹사이트 + 윈앱
+#### WebAPI 서버 + 윈앱((WPF))
+- 웹사이트나 WPF 윈앱에서는 DB연동 없이도 데이터 처리가 가능!!!
+- Todo List 오늘할일 API 서비스
+
+    |API|설명|Request body|Response body|
+    |:--|:--|:--|:--|
+    |GET /api/todoitems|모든 할일정보 가져오기|None|할일정보 배열|
+    |GET /api/todoitems/{id}|특정 할일정보 가져오기|None|할일정보 한 건|
+    |POST /api/todoitems|새 할일정보 추가|todoitems 데이터|todoitems 데이터|
+    |PUT /api/todoitems/{id}|기존할일 수정|todoitems|None|
+    |DELETE /api/todoitems/{id}|기존할일 삭제|None|None|
+
+    1. 프로젝트 생성
+    2. 패키지 설치
+    3. DB구성, 생성
+    4. 컨트롤러 생성(내용 생략, 위에 다 있음)
+
+- WPF앱 API 사용 - 데이터포털로 부산맛집정보앱, 영화즐겨찾기와 동일(GET 메서드만 사용)
+    1. WPF 프로젝트 생성
+    2. NuGet 패키지 관리에서 패키지 설치
+        - MahApps.Metro / IconPacks
+        - Microsoft.AspNet.WebApi.Client
+    3. UI 설정
+    4. 모델설정, 컬렉션 설정
+    5. WebAPI 호출로 CRUD 구현
+
+    <img src="./image/web0032.png" width="600">
+
+## 13일차
+
+### ASP.NET Core API서버 (계속)
+
+#### WebAPI 서버 + 웹사이트
+- WebAPI 서버는 전일자 프로젝트 사용
+- ASP.NET Core 프로젝트에서 정적페이지HTML, 동적페이지cshtml 동시 사용가능
+- 웹사이트만 새로 생성
+    1. ASP.NET Core 비어있음 으로 프로젝트 생성
+    2. wwwroot/html/index.html 파일 생성 - VS Code의 Live Server 예제와 동일(정적페이지)
+    3. Program.cs에서 MVC패턴 관련된 로직 추가
+    4. Controllers/HomeController.cs 생성
+    5. Index() 메서드에서 뷰 추가 - ASP.NET Core 동적페이지
+    6. View 폴더 하위
+        - _ViewImports.cshtml
+        - _ViewStart.cshtml
+        - Shared/_Layout.cshtml.css
+    7. index.html에 화면UI 구현
+    8. AJAX로 WebAPI 호출하고 데이터를 화면에 뿌리는 로직 추가
+    9. input 태그로 검색부분 구현
+        - Javascript와 데이터를 주고받으면 form태그가 없어도 됨
+        - `<form>` - 서버사이드와 데이터를 주고 받을때 필요
+    10. 입력부분 구현
+    11. jQuery 로직 구현
+
+- AJAX : Asyncronous Javascript And Xml. 자바스크립트에서 비동기로 메서드를 호출 기술
+    - 예전에 XML로만 데이터 전달. 현재는 Json으로 이전 중
+
+- CORS Policy Block : Cross-Origin Resource Sharing. 다른 출처 리소스 접근허용 보안 메커니즘
+    - 아무나 URL로 호출을 못하도록 웹페이지 보안설정
+    - WebAPI 서비스에서 Program.cs에 CORS 호출권한 설정 추가
+    - 프론트엔드는 CORS 설정 필요없음
+     
+    <img src="./image/web0033.png" width="400">
+
+## 14일차
+
+### ASP.NET Core API서버 (계속)
+
+#### WebAPI 서버 + 웹사이트 (계속)
+- 할일 삭제
 
 ### AWS 클라우드 업로드
+- AWS 라이트세일로 웹사이트 업로드
+
+### 부가적인 기능
+- QAuth (구글로그인)
+- 파일업로드
+- WebAPI 서버 + 웹사이트 할일 수정
+
+### MyPortfolio 완성
+
+## 15일차
+
+### 전체 마무리

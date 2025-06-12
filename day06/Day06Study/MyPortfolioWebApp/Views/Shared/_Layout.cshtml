@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="~/vendor/aos/aos.css" />
     <link rel="stylesheet" href="~/vendor/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="~/vendor/glightbox/css/glightbox.min.css" />
+
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     @* <link rel="stylesheet" href="~/MyPortfolioWebApp.styles.css" asp-append-version="true" /> *@
 </head>
@@ -26,13 +27,13 @@
             <a asp-controller="Home" asp-action="Index" class="logo d-flex align-items-center me-auto me-xl-0">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                 <!-- <img src="assets/img/logo.png" alt=""> -->
-                <h1 class="sitename">Hugo</h1>
+                <h1 class="sitename">WDK</h1>
             </a>
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <!-- ASP.NET Core Controller/View형태로 변경되어야 함 -->
-                    <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <!-- ASP.NET Core Controller/View 형태로 변경되어야 함 -->
+                    <li><a asp-controller="Home" asp-action="Index" class="active">Home</a></li>
                     <li><a asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-controller="Resume" asp-action="Index">Resume</a></li>
                     <li><a asp-controller="Resume" asp-action="Services">Services</a></li>
@@ -66,7 +67,7 @@
     <footer id="footer" class="footer light-background">
 
         <div class="container">
-            <div class="copyright text-center">
+            <div class="copyright text-center ">
                 <p>© <span>Copyright</span> <strong class="px-1 sitename">Kelly</strong> <span>All Rights Reserved<br></span></p>
             </div>
             <div class="social-links d-flex justify-content-center">
@@ -86,10 +87,8 @@
 
     </footer>
 
-    <!-- Scroll Top : 웹페이지 영역의 높이 100px을 넘어서면 그때 표시! -->
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
-        <i class="bi bi-arrow-up-short"></i>
-    </a>
+    <!-- Scroll Top main영역의 높이 100px을 넘어서면 그때 표시 -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center active"><i class="bi bi-arrow-up-short"></i></a>
 
     <!-- Preloader -->
     <div id="preloader"></div>

@@ -1,4 +1,4 @@
-using DbFirstWebApp.Models;
+ï»¿using DbFirstWebApp.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DbFirstWebApp
@@ -11,7 +11,7 @@ namespace DbFirstWebApp
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            // DB¿¬°á ÃÊ±âÈ­
+            // DBì—°ê²° ì´ˆê¸°í™”
             builder.Services.AddDbContext<BookrentalshopContext>(options => options.UseMySql(
                 builder.Configuration.GetConnectionString("DefaultConnection"),
                 ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))

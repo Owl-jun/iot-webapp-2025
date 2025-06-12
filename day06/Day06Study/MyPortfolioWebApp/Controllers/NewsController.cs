@@ -1,4 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolioWebApp.Models;
 
@@ -13,12 +18,10 @@ namespace MyPortfolioWebApp.Controllers
             _context = context;
         }
 
-        // GET: News . http://locahost:5234/News/Index 요청했음
+        // GET: News
         public async Task<IActionResult> Index()
         {
-            // _context News
-            // SELECT * FROM News.
-            return View(await _context.News.ToListAsync()); // 뷰화면에 데이터를 가지고감
+            return View(await _context.News.ToListAsync());
         }
 
         // GET: News/Details/5
@@ -29,7 +32,6 @@ namespace MyPortfolioWebApp.Controllers
                 return NotFound();
             }
 
-            // SELECT * FROM News WHERE id = @id
             var news = await _context.News
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (news == null)
@@ -40,10 +42,10 @@ namespace MyPortfolioWebApp.Controllers
             return View(news);
         }
 
-        // GET: http://localhost:5234/News/Create GET method로 호출!!
+        // GET: News/Create
         public IActionResult Create()
         {
-            return View();  // View로 데이터를 가져갈게 아무것도 없음
+            return View();
         }
 
         // POST: News/Create
@@ -51,14 +53,11 @@ namespace MyPortfolioWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        // <form asp-controller="News" asp-action="Create"> 이 http://localhost:5234/News/Create 포스트메서드 호출
         public async Task<IActionResult> Create([Bind("Id,Writer,Title,Description,PostDate,ReadCount")] News news)
         {
             if (ModelState.IsValid)
             {
-                // INSERT INTO...
                 _context.Add(news);
-                // COMMIT
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -73,7 +72,6 @@ namespace MyPortfolioWebApp.Controllers
                 return NotFound();
             }
 
-            // SELECT * FROM News WHERE id = @id
             var news = await _context.News.FindAsync(id);
             if (news == null)
             {
@@ -98,9 +96,7 @@ namespace MyPortfolioWebApp.Controllers
             {
                 try
                 {
-                    // UPDATE News SET ...
                     _context.Update(news);
-                    // COMMIT
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -145,10 +141,9 @@ namespace MyPortfolioWebApp.Controllers
             var news = await _context.News.FindAsync(id);
             if (news != null)
             {
-                // DELETE FROM News WHERE id = @id
                 _context.News.Remove(news);
             }
-            // COMMIT
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
