@@ -10,7 +10,6 @@
 
 1. **게시글 작성**
 
-    <img src="./image/codingtest/게시글 작성.png" width=700>
     <img src="./image/codingtest/게시글 작성2.png" width=700>
 
 ---
