@@ -7,12 +7,11 @@ namespace MyPortfolioWebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ApplicationDbContext _context; // DBì—°ë™
+        private readonly ApplicationDbContext _context; // DB¿¬µ¿
 
         public HomeController(ApplicationDbContext context)
         {
             _context = context;
-
         }
 
         public IActionResult Index()
@@ -22,16 +21,15 @@ namespace MyPortfolioWebApp.Controllers
 
         public async Task<IActionResult> About()
         {
-            // ì •ì  HTMLì„ DB ë°ì´í„°ë¡œ ë™ì  ì²˜ë¦¬
-            // DBì—ì„œ ë°ì´í„°ë¥¼ ë¶ˆëŸ¬ì˜¨ ë’¤ About, Skill ê°ì²´ì— ë°ì´í„° ë‹´ì•„ì„œ ë·°ë¡œ ë„˜ê²¨ì¤Œ
+            // Á¤Àû HTMLÀ» DB µ¥ÀÌÅÍ·Î µ¿ÀûÃ³¸®
+            // DB¿¡¼­ µ¥ÀÌÅÍ¸¦ ºÒ·¯¿Â µÚ About, Skill °´Ã¼¿¡ µ¥ÀÌÅÍ ´ã¾Æ¼­ ºä·Î ³Ñ°ÜÁÜ
             var skillCount = _context.Skill.Count();
             var skill = await _context.Skill.ToListAsync();
+            // FirstAsync´Â µ¥ÀÌÅÍ°¡ ¾øÀ¸¸é ¿¹¿Ü¹ß»ı. FirstOrDefaultAsync µ¥ÀÌÅÍ°¡ ¾øÀ¸¸é ³Î°ª
+            var about = await _context.About.FirstOrDefaultAsync(); 
 
-            var about = await _context.About.FirstOrDefaultAsync(); // FirstOrDefaultAsync - ë°ì´í„° ì—†ìœ¼ë©´ Null
-
-            ViewBag.SkillCount = skillCount;
-            ViewBag.ColNum = (skillCount / 2) + (skillCount % 2);
-
+            ViewBag.SkillCount = skillCount; // ex. 7ÀÌ ³Ñ¾î°¨
+            ViewBag.ColNum = (skillCount / 2) + (skillCount % 2); // 3(7/2) + 1(7%2)
 
             var model = new AboutModel();
             model.About = about;

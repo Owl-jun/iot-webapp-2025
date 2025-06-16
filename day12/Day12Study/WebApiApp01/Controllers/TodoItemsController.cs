@@ -11,27 +11,27 @@ namespace WebApiApp01.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TodoitemsController : ControllerBase
+    public class TodoItemsController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        public TodoitemsController(AppDbContext context)
+        public TodoItemsController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Todoitems
+        // GET: api/TodoItems
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoitems()
+        public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems()
         {
-            return await _context.Todoitems.ToListAsync();
+            return await _context.TodoItems.ToListAsync();
         }
 
-        // GET: api/Todoitems/5
+        // GET: api/TodoItems/5
         [HttpGet("{id}")]
         public async Task<ActionResult<TodoItem>> GetTodoItem(int id)
         {
-            var todoItem = await _context.Todoitems.FindAsync(id);
+            var todoItem = await _context.TodoItems.FindAsync(id);
 
             if (todoItem == null)
             {
@@ -41,7 +41,7 @@ namespace WebApiApp01.Controllers
             return todoItem;
         }
 
-        // PUT: api/Todoitems/5
+        // PUT: api/TodoItems/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTodoItem(int id, TodoItem todoItem)
@@ -72,28 +72,28 @@ namespace WebApiApp01.Controllers
             return NoContent();
         }
 
-        // POST: api/Todoitems
+        // POST: api/TodoItems
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<TodoItem>> PostTodoItem(TodoItem todoItem)
         {
-            _context.Todoitems.Add(todoItem);
+            _context.TodoItems.Add(todoItem);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
         }
 
-        // DELETE: api/Todoitems/5
+        // DELETE: api/TodoItems/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTodoItem(int id)
         {
-            var todoItem = await _context.Todoitems.FindAsync(id);
+            var todoItem = await _context.TodoItems.FindAsync(id);
             if (todoItem == null)
             {
                 return NotFound();
             }
 
-            _context.Todoitems.Remove(todoItem);
+            _context.TodoItems.Remove(todoItem);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -101,7 +101,7 @@ namespace WebApiApp01.Controllers
 
         private bool TodoItemExists(int id)
         {
-            return _context.Todoitems.Any(e => e.Id == id);
+            return _context.TodoItems.Any(e => e.Id == id);
         }
     }
 }

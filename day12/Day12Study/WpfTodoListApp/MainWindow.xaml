@@ -6,20 +6,21 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:WpfTodoListApp"
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
-    xmlns:iconPack="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"     
     mc:Ignorable="d"
+    ResizeMode="NoResize"
     Title="할일리스트앱" Height="350" Width="600" Loaded="MetroWindow_Loaded">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3* "/>
-            <ColumnDefinition Width="2* "/>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
         
-        <!-- UI 구성 -->
+        <!-- UI 구성-->
         <DataGrid x:Name="GrdTodoItems"
-            Grid.Row="0" Grid.Column="0" 
-            Margin="10" Background="Gainsboro" IsReadOnly="True"
-            SelectionChanged="GrdTodoItems_SelectionChanged"></DataGrid>
+                  Grid.Row="0" Grid.Column="0" 
+                  Margin="5" Background="Gainsboro" IsReadOnly="True"
+                  SelectionChanged="GrdTodoItems_SelectionChanged"></DataGrid>
 
         <GroupBox Grid.Row="0" Grid.Column="1" Margin="5" Header="할일정보">
             <Grid Margin="5">
@@ -33,31 +34,32 @@
                 
                 <!-- UI 구성 -->
                 <TextBox Grid.Row="0" x:Name="TxtId"
-                         Margin="3"
+                         Margin="3" 
                          mah:TextBoxHelper.AutoWatermark="True"
                          mah:TextBoxHelper.Watermark="아이디"
-                         IsReadOnly="True"/>
+                         mah:TextBoxHelper.UseFloatingWatermark="True"
+                         IsReadOnly="True" />
 
                 <TextBox Grid.Row="1" x:Name="TxtTitle"
-                         Margin="3"
+                         Margin="3" 
                          mah:TextBoxHelper.AutoWatermark="True"
                          mah:TextBoxHelper.Watermark="할일"
                          mah:TextBoxHelper.UseFloatingWatermark="True"
                          mah:TextBoxHelper.ClearTextButton="True"/>
+
                 <DatePicker Grid.Row="2" x:Name="DtpTodoDate"
-                        Margin="3"
-                        mah:TextBoxHelper.AutoWatermark="True"
-                        mah:TextBoxHelper.UseFloatingWatermark="True"
-                        mah:TextBoxHelper.Watermark="종료일" />
+                            Margin="3" 
+                            mah:TextBoxHelper.AutoWatermark="True"
+                            mah:TextBoxHelper.UseFloatingWatermark="True"
+                            mah:TextBoxHelper.Watermark="종료일" />
 
                 <ComboBox Grid.Row="3" x:Name="CboIsComplete"
-                      Margin="3"
-                      DisplayMemberPath="Key"
-                      SelectedValuePath="Value"
-                      mah:TextBoxHelper.AutoWatermark="True"
-                      mah:TextBoxHelper.Watermark="완료여부"
-                      mah:TextBoxHelper.UseFloatingWatermark="True">
-                </ComboBox>
+                          Margin="3"
+                          DisplayMemberPath="Key"
+                          SelectedValuePath="Value"
+                          mah:TextBoxHelper.AutoWatermark="True"
+                          mah:TextBoxHelper.Watermark="완료여부"
+                          mah:TextBoxHelper.UseFloatingWatermark="True"></ComboBox>
 
                 <StackPanel Grid.Row="4" Margin="3" Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button x:Name="BtnInsert" Content="추가" Width="60" Margin="0,5,3,5"

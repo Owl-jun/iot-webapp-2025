@@ -1,4 +1,4 @@
-Ôªø
+
 using Microsoft.EntityFrameworkCore;
 using WebApiApp01.Models;
 
@@ -11,25 +11,28 @@ namespace WebApiApp01
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
-            // CORS ÏÑ§Ï†ï
+<<<<<<< HEAD
+            // CORS º≥¡§
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowFrontend", policy =>
                 {
-                    policy.WithOrigins("http://localhost:5183") // ÌîÑÎ°†Ìä∏ÏóîÎìú(Î≥∏Ïù∏Ìè¨Ìä∏Î≤àÌò∏) Ï£ºÏÜå
+                    policy.WithOrigins("http://localhost:5059")  // «¡∑–∆Æø£µÂ(∫ª¿Œ∆˜∆Æπ¯»£) ¡÷º“
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                 });
             });
 
-            // DBÏó∞Í≤∞ ÏÑ§Ï†ï Ï¥àÍ∏∞ÌôîÎ°úÏßÅ
+            // DBø¨∞· º≥¡§ √ ±‚»≠∑Œ¡˜
             builder.Services.AddDbContext<AppDbContext>(
+=======
+            builder.Services.AddDbContext<DbCtx>(
+>>>>>>> parent of bb0c90c (13)
                 options => options.UseMySql(
                     builder.Configuration.GetConnectionString("SmartHomeConnection"),
                     ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("SmartHomeConnection"))
-                    )
-                );
+                )
+            );
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -37,7 +40,10 @@ namespace WebApiApp01
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
-            app.UseCors("AllowFrontend"); // CORS ÏÑ§Ï†ï ÏÇ¨Ïö©
+<<<<<<< HEAD
+            app.UseCors("AllowFrontend");  // CORS º≥¡§ ªÁøÎ
+=======
+>>>>>>> parent of bb0c90c (13)
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -45,6 +51,8 @@ namespace WebApiApp01
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseHttpsRedirection();
 
             app.UseAuthorization();
 

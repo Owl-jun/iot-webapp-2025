@@ -21,7 +21,7 @@ namespace WebApiApp01.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("WebApiApp01.Models.Todoitem", b =>
+            modelBuilder.Entity("WebApiApp01.Models.TodoItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -42,7 +42,7 @@ namespace WebApiApp01.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Todoitems");
+                    b.ToTable("TodoItems");
                 });
 #pragma warning restore 612, 618
         }

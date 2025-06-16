@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using WebTodoListApp.Models;
 using WpfTodoListApp.Models;
 
 namespace WpfTodoListApp
@@ -17,30 +16,26 @@ namespace WpfTodoListApp
         HttpClient client = new HttpClient();
         // ObservableCollection을 굳이 사용하지 않아도 기능에는 문제가 없음
         TodoItemsCollection todoItems = new TodoItemsCollection();
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
         private void MetroWindow_Loaded(object sender, System.Windows.RoutedEventArgs e)
-        {
+        {           
             var comboPairs = new List<KeyValuePair<string, int>> {
                 new KeyValuePair<string, int>("완료", 1),
                 new KeyValuePair<string, int>("미완료", 0),
             };
-
             CboIsComplete.ItemsSource = comboPairs;
 
             // RestAPI 호출 준비
-            client.BaseAddress = new System.Uri("http://localhost:6200");  // API 서버 URL
+            client.BaseAddress = new Uri("http://localhost:6200"); // API 서버 URL
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            // 데이터 가져오기
-            GetDatas();
-
-            // 입력양식초기화
-            InitControls();
-
+            // 데이터가져오기
+            GetDatas(); 
         }
 
         private async Task GetDatas()
@@ -52,13 +47,14 @@ namespace WpfTodoListApp
             {
                 // http://localhost:6200/api/TodoItems
                 HttpResponseMessage? response = await client.GetAsync("/api/TodoItems");
-                response.EnsureSuccessStatusCode(); // 상태코드 확인
+                response.EnsureSuccessStatusCode(); // 상태코드 확인 
 
                 var items = await response.Content.ReadAsAsync<IEnumerable<TodoItem>>();
                 todoItems.CopyFrom(items); // ObservableCollection으로 형변환
+                //GrdTodoItems.ItemsSource = items;
 
                 // 성공메시지
-                await this.ShowMessageAsync("API호출", "로드 성공!");
+                await this.ShowMessageAsync("API호출", "로드성공!");
             }
             catch (Exception ex)
             {
@@ -81,17 +77,15 @@ namespace WpfTodoListApp
                 };
 
                 // 데이터 입력확인
-                //Debug.WriteLine(todoItem.Title);
+                // Debug.WriteLine(todoItem.Title);
 
                 // POST 메서드 API 호출
                 var response = await client.PostAsJsonAsync("/api/TodoItems", todoItem);
                 response.EnsureSuccessStatusCode();
 
                 GetDatas();
-
-                // 입력양식초기화
-                InitControls(); ;
-
+                // 입력양식 초기화
+                InitControls();
             }
             catch (Exception ex)
             {
@@ -105,9 +99,8 @@ namespace WpfTodoListApp
             try
             {
                 //await this.ShowMessageAsync("클릭", "클릭확인");
-                var Id = (GrdTodoItems.SelectedItem as TodoItem)?.Id;   // ?. -> Null이 생겨도 예외발생안함
-
-                if (Id == null) return; // 이 구문은 만나야 아래 로직이 실행안됨
+                var Id = (GrdTodoItems.SelectedItem as TodoItem)?.Id; // ?. -> Null일 생겨도 예외발생안함
+                if (Id == null) return;  // 이 구문을 만나야 아래 로직이 실행안됨
 
                 // /api/TodoItems/{Id} GET 메서드 API 호출
                 var response = await client.GetAsync($"/api/TodoItems/{Id}");
@@ -143,11 +136,8 @@ namespace WpfTodoListApp
                 response.EnsureSuccessStatusCode();
 
                 GetDatas();
-
-                // 입력양식초기화
+                // 입력양식 초기화
                 InitControls();
-
-
             }
             catch (Exception ex)
             {
@@ -158,7 +148,7 @@ namespace WpfTodoListApp
 
         private void InitControls()
         {
-            // 입력양식초기화
+            // 입력양식 초기화
             TxtId.Text = string.Empty;
             TxtTitle.Text = string.Empty;
             DtpTodoDate.Text = string.Empty;
@@ -175,10 +165,7 @@ namespace WpfTodoListApp
                 response.EnsureSuccessStatusCode();
 
                 GetDatas();
-
-                // 입력양식초기화
                 InitControls();
-
             }
             catch (Exception ex)
             {

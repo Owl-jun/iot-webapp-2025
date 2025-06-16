@@ -1,6 +1,5 @@
 ﻿using System.Collections.ObjectModel;
 using System.Collections.Specialized;
-using WebTodoListApp.Models;
 
 namespace WpfTodoListApp.Models
 {

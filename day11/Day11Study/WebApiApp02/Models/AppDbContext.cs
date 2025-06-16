@@ -12,7 +12,7 @@ namespace WebApiApp02.Models
         {
         }
 
-        // 제일 중요!!
+        // 제일 중요!
         public DbSet<Book> Book { get; set; }
     }
 }

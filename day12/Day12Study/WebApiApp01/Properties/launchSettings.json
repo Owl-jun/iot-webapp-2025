@@ -4,8 +4,13 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:29626",
+<<<<<<< HEAD
+      "applicationUrl": "http://localhost:5427",
       "sslPort": 0
+=======
+      "applicationUrl": "http://localhost:17467",
+      "sslPort": 44391
+>>>>>>> parent of bb0c90c (13)
     }
   },
   "profiles": {
@@ -14,7 +19,17 @@
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "http://localhost:6200",
+      "applicationUrl": "http://localhost:5065",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "https://localhost:7046;http://localhost:5065",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebApiApp03.models;
 
 namespace WebApiApp03.Models
 {
@@ -13,7 +12,7 @@ namespace WebApiApp03.Models
         {
         }
 
-        // 제일 중요!!
+        // 제일 중요!
         //public DbSet<Book> Book { get; set; }
         public DbSet<iot_datas> iot_datas { get; set; }
     }

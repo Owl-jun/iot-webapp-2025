@@ -12,13 +12,13 @@ namespace MyPortfolioWebApp
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            // DBì—°ê²° ì´ˆê¸°í™”
+            // DB¿¬°á ÃÊ±âÈ­ ¼³Á¤
             builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseMySql(
                 builder.Configuration.GetConnectionString("SmartHomeConnection"),
                 ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("SmartHomeConnection"))
             ));
 
-            // ASP.NET Core Identity ì„¤ì •
+            // ASP.NET Core Identity ¼³Á¤
             builder.Services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
@@ -33,8 +33,8 @@ namespace MyPortfolioWebApp
             app.UseStaticFiles();
 
             app.UseRouting();
-            app.UseAuthentication();    // ASP.NET Core Identity ê³„ì •
-            app.UseAuthorization();     // ê¶Œí•œ
+            app.UseAuthentication();  // ASP.NET Core Identity °èÁ¤
+            app.UseAuthorization();   // ±ÇÇÑ
 
             app.MapControllerRoute(
                 name: "default",

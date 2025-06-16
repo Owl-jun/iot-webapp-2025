@@ -1,4 +1,8 @@
-@WebApiApp01_HostAddress = http://localhost:5279
+<<<<<<< HEAD
+@WebApiApp01_HostAddress = http://localhost:5134
+=======
+@WebApiApp01_HostAddress = http://localhost:5065
+>>>>>>> parent of bb0c90c (13)
 
 GET {{WebApiApp01_HostAddress}}/weatherforecast/
 Accept: application/json

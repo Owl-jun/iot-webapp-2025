@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApiApp03.Models;
-using WebApiApp03.models;
-using System.Diagnostics;
 
 namespace WebApiApp03.Controllers
 {
@@ -36,8 +35,8 @@ namespace WebApiApp03.Controllers
             // 1. 서비스키가 일치하는 요청만 수행
             if (string.IsNullOrWhiteSpace(serviceKey))
             {
-                return BadRequest();
-            }else
+                return BadRequest(); 
+            } else
             {
                 // 서버에서 키를 검색해서 검증된 키인지 확인하고 맞으면 진행
             }
@@ -50,12 +49,12 @@ namespace WebApiApp03.Controllers
             if (resultType == "xml")
             {
                 // XML로 형변환
-            } else if (resultType == "json")
+            } else if (resultType == "jons")
             {
                 // JSON으로 형변환
             }
 
-            return result;  // _context.iot_datas.ToListAsync();
+            return result; //  _context.iot_datas.ToListAsync();
         }
 
         // GET: api/IoTDatas/5

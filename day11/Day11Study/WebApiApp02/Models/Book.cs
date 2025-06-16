@@ -8,11 +8,11 @@ namespace WebApiApp02.Models
         [Key]
         public int Idx { get; set; }
 
-        // 책 제목
+        // 책제목
         [Required]
         public string Names { get; set; }
 
-        // 책 저자
+        // 책저자
         [Required]
         public string Author { get; set; }
 

@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="BackupModels\**" />
+    <Content Remove="BackupModels\**" />
+    <EmbeddedResource Remove="BackupModels\**" />
+    <None Remove="BackupModels\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bogus" Version="35.6.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.16">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.3" />
+    <PackageReference Include="Westwind.AspNetCore.Markdown" Version="3.23.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+<<<<<<< HEAD:day10/Day10Study/MyPortfolioWebApp/MyPortfolioWebApp.csproj
+    <Folder Include="Migrations\" />
+    <Folder Include="wwwroot\upload\" />
+=======
+    <Folder Include="BackupModels\" />
+    <Folder Include="Migrations\" />
+>>>>>>> parent of bb0c90c (13):Day10Study/MyPortfolioWebApp/MyPortfolioWebApp.csproj
+  </ItemGroup>
+
+</Project>
